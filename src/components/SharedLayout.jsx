@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Header, Link } from "./SharedLayout.styled";
 import { Container, Flex, VStack, Button } from "@chakra-ui/react"
 import { useDispatch, useSelector } from "react-redux";
@@ -14,14 +14,14 @@ import {getCurrentProfile} from "../components/redux/auth/auth-thunk"
 export const SharedLayout = () => {
     const isAuth = useSelector(selectToken)
     const user = useSelector(selectUser);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const name = useSelector(selectUserName)
 
 
   useEffect(() => {
       if (isAuth && !user) {
-          setToken(isAuth)
+          setToken()
       dispatch(getCurrentProfile())
           .unwrap()
               .catch(() => dispatch(logout()))
@@ -30,8 +30,8 @@ export const SharedLayout = () => {
 
     const handleLogout = () => {
         dispatch(logout())
-        dellToken()
-        // navigate('/')
+        // dellToken()
+        navigate('/')
         console.log(name)
     }
 
