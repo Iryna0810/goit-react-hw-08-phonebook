@@ -25,8 +25,7 @@ const Login = () => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email, password)
+        e.preventDefault()
         dispatch(login({ email, password }))
         setEmail('');
         setPassword('');

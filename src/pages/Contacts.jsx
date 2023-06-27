@@ -5,9 +5,7 @@ import { Filter } from "../components/Filtter/Filter";
 import { Container, Flex, VStack } from "@chakra-ui/react"
 
 
-const ContactsList = () => {
-    // const isAuth = useSelector(selectToken)
-    
+const ContactsList = () => {    
     return(
      <Container p={10}>
             <Flex py={10}>
