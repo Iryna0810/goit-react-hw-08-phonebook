@@ -3,7 +3,7 @@ import { Input, FormWrapper } from '../styled';
 import { useDispatch, useSelector } from "react-redux";
 import {addContactsThunk} from 'components/redux/thunk'
 import { selectContacts } from '../redux/selectors';
-import { FormLabel, Button, VStack } from '@chakra-ui/react';
+import { FormLabel, Button } from '@chakra-ui/react';
 
 
 export const Form = () => {
