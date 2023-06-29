@@ -10,10 +10,14 @@ export const List = styled.ul`
   margin-top: 20px;
 `;
 export const FormWrapper = styled.form`
+display: flex;
+flex-direction: column;
   margin: 0 auto;
   padding: 10px;
   gap: 20px;
   width: 100%;
+  alignItems="center"
+  justifyContent="center"
 
 
 `;

@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { Input } from '../styled';
+import { Input, FormWrapper } from '../styled';
 import { useDispatch, useSelector } from "react-redux";
 import {addContactsThunk} from 'components/redux/thunk'
 import { selectContacts } from '../redux/selectors';
@@ -44,13 +44,7 @@ export const Form = () => {
     setPhone('');
   }
 
-  return <VStack
-    w="full"
-    h="full"
-    p={10}
-    alignItems="center"
-    justifyContent="center"
-    action="" onSubmit={handleSubmit}>
+  return <FormWrapper action="" onSubmit={handleSubmit}>
     <FormLabel>Name
       <Input
         type="text"
@@ -78,5 +72,5 @@ export const Form = () => {
         </Input>
     </FormLabel>
     <Button bgColor="blue.100" type="submit">Add contacts</Button>
-  </VStack>
+  </FormWrapper>
 };
