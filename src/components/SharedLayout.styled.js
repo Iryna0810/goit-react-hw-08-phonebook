@@ -10,10 +10,10 @@ export const ContainerHeader = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: center;
+  // gap: 12px;
   padding: 8px 0;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
   border-bottom: 1px solid black;
 
   > nav {

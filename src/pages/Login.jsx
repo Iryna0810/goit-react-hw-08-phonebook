@@ -1,18 +1,17 @@
 import { Button, Container, FormLabel, Input} from "@chakra-ui/react"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {FormWrapper} from '../components/styled'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "components/redux/auth/auth-thunk";
-import {selectToken} from '../components/redux/selectors'
 import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
-    const isAuth = useSelector(selectToken)
-    const dispatch = useDispatch()
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const handleChange = ({ target: { name, value } }) => {
         switch (name) {
@@ -27,13 +26,11 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(login({ email, password }))
+        navigate('/contacts')
         setEmail('');
         setPassword('');
     }
 
-    useEffect(() => {
-        isAuth && navigate('/contacts')
-    },[isAuth, navigate] )
 
     return (
         <Container p={10}>

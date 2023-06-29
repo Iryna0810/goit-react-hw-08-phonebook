@@ -33,7 +33,6 @@ export const logoutFetch = async (credentials) => {
 export const getProfileFetch = async (token) => {
     setToken(`Bearer ${token}`);
     const { data } = await instance.get('users/current');
-    console.log(data)
            return data;
     };
 

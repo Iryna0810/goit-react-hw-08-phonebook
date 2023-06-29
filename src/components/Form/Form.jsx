@@ -1,9 +1,9 @@
 import {useState} from 'react';
-import { FormWrapper, Input } from '../styled';
+import { Input } from '../styled';
 import { useDispatch, useSelector } from "react-redux";
 import {addContactsThunk} from 'components/redux/thunk'
 import { selectContacts } from '../redux/selectors';
-import { FormLabel, Button } from '@chakra-ui/react';
+import { FormLabel, Button, VStack } from '@chakra-ui/react';
 
 
 export const Form = () => {
@@ -44,7 +44,13 @@ export const Form = () => {
     setPhone('');
   }
 
-  return <FormWrapper action="" onSubmit={handleSubmit}>
+  return <VStack
+    w="full"
+    h="full"
+    p={10}
+    alignItems="center"
+    justifyContent="center"
+    action="" onSubmit={handleSubmit}>
     <FormLabel>Name
       <Input
         type="text"
@@ -71,6 +77,6 @@ export const Form = () => {
         onChange={handleInputChange}>
         </Input>
     </FormLabel>
-    <Button bgColor="blue.100"  ml="12" mt="5" type="submit">Add contacts</Button>
-  </FormWrapper>
+    <Button bgColor="blue.100" type="submit">Add contacts</Button>
+  </VStack>
 };

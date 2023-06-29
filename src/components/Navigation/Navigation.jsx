@@ -6,7 +6,7 @@ import { Home } from "../../pages/Home"
 import PublicRoute from "./PublicRoute";
 import PrivateRoute from './PrivateRoute'
 
-const ContactsList = lazy(() => import("../../pages/Contacts"))
+const Contacts = lazy(() => import("../../pages/Contacts"))
 const Register = lazy(() => import("../../pages/Register"))
 const Login = lazy(() => import("../../pages/Login"))
 
@@ -33,8 +33,9 @@ export const App = () => {
           }></Route>        
           <Route path="contacts" element={
             <PrivateRoute>
-              <ContactsList />
-            </PrivateRoute>}>
+              <Contacts />
+           </PrivateRoute>
+            }>
             </Route>
         </Route>
         </Routes>

@@ -28,7 +28,7 @@ export const getCurrentProfile = createAsyncThunk('auth/refresh', async (_, thun
 export const login = createAsyncThunk('auth/login', async (body, {dispatch, rejectWithValue}) => {
     try {
         const data = await loginFetch(body)
-        // dispatch(getProfile())
+        // dispatch(getCurrentProfile())
         return data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);
@@ -38,7 +38,9 @@ export const login = createAsyncThunk('auth/login', async (body, {dispatch, reje
 export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValue }) => {
     try {
         const data = await logoutFetch()
+        console.log(data)
         return data;
+
     } catch (error) {
         return rejectWithValue(error.response.data.message);
     }
