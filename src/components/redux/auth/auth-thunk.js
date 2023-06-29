@@ -11,10 +11,8 @@ export const register = createAsyncThunk('auth/register', async (body,{rejectWit
 })
 
 export const getCurrentProfile = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
-    console.log(thunkAPI.getState());
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    console.log(persistedToken)
     if (persistedToken === null) return thunkAPI.rejectWithValue(); 
     try {
         const data = getProfileFetch(persistedToken);
