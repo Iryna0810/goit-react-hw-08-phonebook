@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { Link } from "./SharedLayout.styled";
-import { Container, Flex, VStack, Button, Header } from "@chakra-ui/react"
+import { Container, Flex, VStack, Button } from "@chakra-ui/react"
 import { useDispatch, useSelector } from "react-redux";
 import {useEffect} from 'react'
 import { selectUserName} from '../components/redux/selectors'
