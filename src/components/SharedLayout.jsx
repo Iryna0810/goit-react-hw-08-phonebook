@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { Header, Link } from "./SharedLayout.styled";
-import { Container, Flex, VStack, Button } from "@chakra-ui/react"
+import { Link } from "./SharedLayout.styled";
+import { Container, Flex, VStack, Button, Header } from "@chakra-ui/react"
 import { useDispatch, useSelector } from "react-redux";
 import {useEffect} from 'react'
 import { selectUserName} from '../components/redux/selectors'
@@ -33,7 +33,13 @@ export const SharedLayout = () => {
 
     return (
         <Container maxW="80vw">
-            <Header justifyContent="center" >
+            <header style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderBottom: '1px solid',
+                padding: '10px'
+            }}>
                     <Flex gap={120} alignItems="center">
                         {!isAuth ?
                             <>
@@ -46,7 +52,7 @@ export const SharedLayout = () => {
                             </>
                         }
                     </Flex>
-            </Header>
+            </header>
             <Suspense fallback={<div>Loading page...</div>}>
                 <Container maxW="container.lg" p={10}>
                     <Flex>
