@@ -30,7 +30,6 @@ export const Form = () => {
     }
 
     dispatch(addContactsThunk(contact))
-    console.log(contact)
     reset();
   }
 

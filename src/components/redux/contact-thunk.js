@@ -3,27 +3,24 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 
 export const getContactsThunk = createAsyncThunk('contacts/getAllContacts',
     async (_, thunkAPI) => {
-        
-    const state = thunkAPI.getState();
+        const state = thunkAPI.getState();
         const persistedToken = state.auth.token;
-        console.log(persistedToken)
-    if (persistedToken === null) return thunkAPI.rejectWithValue(); 
+        if (persistedToken === null) return thunkAPI.rejectWithValue();
         try {
             const data = await getContacts(persistedToken)
             return data;
-
         } catch (error) {
             return thunkAPI.rejectWithValue(error.response.data.message);
         }
        
-    })
+    }
+    )
 
 export const addContactsThunk = createAsyncThunk('contacts/getAddContact',
     async (body, thunkAPI) => {
-         const state = thunkAPI.getState();
+        const state = thunkAPI.getState();
         const persistedToken = state.auth.token;
-        console.log(persistedToken)
-if (persistedToken === null) return thunkAPI.rejectWithValue(); 
+        if (persistedToken === null) return thunkAPI.rejectWithValue();
         try {
             const data = await addContact(persistedToken, body)
             return data;
@@ -32,17 +29,17 @@ if (persistedToken === null) return thunkAPI.rejectWithValue();
         }
     }
 )   
-    export const deleteContactsThunk = createAsyncThunk('contacts/getDeleteContact',
-        async (id, thunkAPI) => {
-          const state = thunkAPI.getState();
+export const deleteContactsThunk = createAsyncThunk('contacts/getDeleteContact',
+    async (id, thunkAPI) => {
+        const state = thunkAPI.getState();
         const persistedToken = state.auth.token;
-if (persistedToken === null) return thunkAPI.rejectWithValue(); 
-    try {
-        const data = await deleteContact(id);
-        return data;
-    } catch (error) {
-       return thunkAPI.rejectWithValue(error.response.data.message);
-    }  
-}
+        if (persistedToken === null) return thunkAPI.rejectWithValue();
+        try {
+            const data = await deleteContact(persistedToken, id);
+            return data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data.message);
+        }
+    }
 )
     
