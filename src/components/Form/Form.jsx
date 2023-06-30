@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import { Input, FormWrapper } from '../styled';
 import { useDispatch, useSelector } from "react-redux";
-import {addContactsThunk} from 'components/redux/thunk'
+import {addContactsThunk} from 'components/redux/contact-thunk'
 import { selectContacts } from '../redux/selectors';
 import { FormLabel, Button } from '@chakra-ui/react';
 
@@ -15,7 +15,7 @@ export const Form = () => {
 
   const contact = {
     name: name,
-    phone: phone,
+    number: phone,
   };
 
   const dispatch = useDispatch();
@@ -30,6 +30,7 @@ export const Form = () => {
     }
 
     dispatch(addContactsThunk(contact))
+    console.log(contact)
     reset();
   }
 

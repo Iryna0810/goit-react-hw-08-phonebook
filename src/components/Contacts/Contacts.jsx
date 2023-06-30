@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Button, Flex, Text, VStack} from "@chakra-ui/react"
 import { useSelector, useDispatch } from "react-redux";
 import { selectVisibleContacts, selectIsLoading, selectError} from '../redux/selectors'
-import { getContactsThunk, deleteContactsThunk } from 'components/redux/thunk';
+import { getContactsThunk, deleteContactsThunk } from 'components/redux/contact-thunk';
 import Loader from 'components/Loader/Loader'
 
 export const Contacts = () => {

@@ -3,9 +3,12 @@ import { useState } from "react";
 import {FormWrapper} from '../components/styled'
 import { useDispatch } from "react-redux";
 import { register } from "components/redux/auth/auth-thunk";
+import { useNavigate } from "react-router-dom";
+
 
 const Register = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -26,6 +29,7 @@ const Register = () => {
         e.preventDefault();
         console.log(name, email, password)
         dispatch(register({ name, email, password }))
+        navigate('/contacts')
         setName('');
         setEmail('');
         setPassword('');

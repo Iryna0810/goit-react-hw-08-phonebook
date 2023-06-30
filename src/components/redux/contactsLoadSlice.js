@@ -1,5 +1,5 @@
 import { createSlice} from "@reduxjs/toolkit"
-import { getContactsThunk, addContactsThunk, deleteContactsThunk } from "components/redux/thunk";
+import { getContactsThunk, addContactsThunk, deleteContactsThunk } from "components/redux/contact-thunk";
 
 const initialState = {
     contacts: [],
@@ -19,7 +19,7 @@ const handleGetFulfilled = (state, { payload }) => {
 
 const handleRejected = (state, {payload}) => {
     state.isLoading = false
-    console.log(payload)
+    // console.log(payload)
     state.error = payload
 }
         

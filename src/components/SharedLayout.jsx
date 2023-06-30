@@ -22,13 +22,12 @@ export const SharedLayout = () => {
             setToken(isAuth)
             dispatch(getCurrentProfile())
                 .unwrap()
-                .catch(() => dispatch(logout()))
+                .catch(() => dispatch(logout(isAuth)))
         }
     }, [dispatch, isAuth])
 
     const handleLogout = () => {
         dispatch(logout())
-        dellToken()
     }
 
     return (
