@@ -4,7 +4,7 @@ import { Link } from "./SharedLayout.styled";
 import { Container, Flex, VStack, Button } from "@chakra-ui/react"
 import { useDispatch, useSelector } from "react-redux";
 import {useEffect} from 'react'
-import { selectUserEmail} from '../components/redux/selectors'
+import { selectUserEmail, selectErrorUser} from '../components/redux/selectors'
 import { selectToken } from "../components/redux/selectors";
 import { logout } from "./redux/auth/auth-thunk";
 import { setToken } from "services/auth";
@@ -15,6 +15,7 @@ export const SharedLayout = () => {
     const isAuth = useSelector(selectToken)
     const dispatch = useDispatch();
     const email = useSelector(selectUserEmail)
+    const error = useSelector(selectErrorUser)
 
 
     useEffect(() => {
@@ -39,7 +40,8 @@ export const SharedLayout = () => {
                 borderBottom: '1px solid',
                 padding: '10px'
             }}>
-                    <Flex gap={120} alignItems="center">
+                <Flex gap={120} alignItems="center">
+                        {error && <p>Something went wrong</p>}
                         {!isAuth ?
                             <>
                                 <Link to="/login">Login</Link>

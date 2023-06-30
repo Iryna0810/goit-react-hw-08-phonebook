@@ -14,7 +14,6 @@ const handlePending = (state) => {
 
 const handleRejected = (state, {error, payload}) => {
     state.error = payload ?? error.message
-    // state.token = null
 }
 
 const handleFulfiled = (state, { payload }) => {

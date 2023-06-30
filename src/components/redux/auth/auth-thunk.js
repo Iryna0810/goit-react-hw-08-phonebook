@@ -7,7 +7,7 @@ export const register = createAsyncThunk('auth/register', async (body,{rejectWit
         const data = registerFetch(body);
         return data;
     } catch (error) {
-        return rejectWithValue(error.message);
+        return rejectWithValue(error.response.data.message);
     }
 })
 
@@ -29,6 +29,7 @@ export const login = createAsyncThunk('auth/login', async (body, {dispatch, reje
         const data = await loginFetch(body)
         return data;
     } catch (error) {
+        console.log(error)
         return rejectWithValue(error.response.data.message);
     }
 })

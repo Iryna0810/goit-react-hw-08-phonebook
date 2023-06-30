@@ -19,7 +19,6 @@ const handleGetFulfilled = (state, { payload }) => {
 
 const handleRejected = (state, {payload}) => {
     state.isLoading = false
-    // console.log(payload)
     state.error = payload
 }
         

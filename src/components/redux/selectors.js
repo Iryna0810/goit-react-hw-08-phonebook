@@ -9,6 +9,7 @@ export const selectIsLoading = state => state.contacts.isLoading;
 export const selectError = state => state.contacts.error;
 export const selectToken = state => state.auth.token;
 export const selectUser = state => state.auth.user;
+export const selectErrorUser = state => state.auth.error;
 
 export const selectVisibleContacts = createSelector(
     [selectContacts, selectFilter], 
